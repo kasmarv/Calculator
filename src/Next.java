@@ -29,16 +29,31 @@ public class Next {
             System.out.println("Неверный диапазон");
             System.exit(0);
         }
-        if (sign.equals("-")) {
-            result = Count.sub(firstNumber, secondNumber);
-        } else if (sign.equals("+")) {
-            result = Count.add(firstNumber, secondNumber);
-        } else if (sign.equals("*")) {
-            result = Count.mul(firstNumber, secondNumber);
-        } else if (sign.equals("/")) {
-            result = Count.div(firstNumber, secondNumber);
+//        if (sign.equals("-")) {
+//            result = Count.sub(firstNumber, secondNumber);
+//        } else if (sign.equals("+")) {
+//            result = Count.add(firstNumber, secondNumber);
+//        } else if (sign.equals("*")) {
+//            result = Count.mul(firstNumber, secondNumber);
+//        } else  {
+//            result = Count.div(firstNumber, secondNumber);
+//        }
+
+        switch (sign) {
+            case "-":
+                result = Count.sub(firstNumber, secondNumber);
+                break;
+            case "+":
+                result = Count.add(firstNumber, secondNumber);
+                break;
+            case  "*":
+                result = Count.mul(firstNumber, secondNumber);
+                break;
+            case "/":
+                result = Count.div(firstNumber, secondNumber);
+                break;
         }
-        if (numberType == false) {
+        if (!numberType) {
             System.out.println(Arab.toRim(result));
         } else {
             System.out.println(result);

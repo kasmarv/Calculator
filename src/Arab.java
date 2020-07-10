@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Arab {
 
-    private static List<String> arab = new ArrayList<>();
+    private final static List<String> arab = new ArrayList<>();
 
     static {
         arab.add("0");
@@ -24,49 +24,49 @@ public class Arab {
     }
 
     public static String toRim(int i) {
-        String r = "";
+        StringBuilder r = new StringBuilder();
         if (i < 0) {
-            r += "-";
+            r.append("-");
             i = Math.abs(i);
         }
         while (i > 0) {
             if (i == 100) {
-                r += "C";
+                r.append("C");
                 i -= 100;
             }
             if (i >= 90) {
-                r += "XC";
+                r.append("XC");
                 i -= 90;
             }
             if (i >= 50) {
-                r += "L";
+                r.append("L");
                 i -= 50;
             }
             if (i >= 10) {
-                r += "X";
+                r.append("X");
                 i -= 10;
                 continue;
             }
             if (i == 9) {
-                r += "IX";
+                r.append("IX");
                 i -= 9;
             }
             if (i >= 5) {
-                r += "V";
+                r.append("V");
                 i -= 5;
             }
             if (i == 4) {
-                r += "IV";
+                r.append("IV");
                 i -= 4;
             }
             if (i > 0) {
-                r += "I";
+                r.append("I");
                 i -= 1;
             }
         }
-        if (r == "") {
-            r = "0";
+        if (r.toString().equals("")) {
+            r = new StringBuilder("0");
         }
-        return r;
+        return r.toString();
     }
 }
